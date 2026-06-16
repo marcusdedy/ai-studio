@@ -58,7 +58,8 @@
           <parameter key="Gross Sales" value="label"/>
         </list>
       </operator>
-      <operator activated="true" class="numerical_to_polynominal" compatibility="12.1.001" expanded="true" height="82" name="Numerical to Polynominal" width="90" x="715" y="85">
+      <operator activated="true" class="discretize_by_bins" compatibility="12.1.001" expanded="true" height="103" name="Discretize" width="90" x="648" y="187">
+        <parameter key="return_preprocessing_model" value="false"/>
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="Gross Sales"/>
         <parameter key="attributes" value=""/>
@@ -71,6 +72,11 @@
         <parameter key="except_block_type" value="value_series_end"/>
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="true"/>
+        <parameter key="number_of_bins" value="3"/>
+        <parameter key="define_boundaries" value="false"/>
+        <parameter key="range_name_type" value="long"/>
+        <parameter key="automatic_number_of_digits" value="true"/>
+        <parameter key="number_of_digits" value="3"/>
       </operator>
       <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="12.1.001" expanded="true" height="103" name="Decision Tree" width="90" x="916" y="187">
         <parameter key="criterion" value="gain_ratio"/>
@@ -85,8 +91,8 @@
       </operator>
       <connect from_op="Read Excel" from_port="output" to_op="Replace Missing Values" to_port="example set input"/>
       <connect from_op="Replace Missing Values" from_port="example set output" to_op="Set Role" to_port="example set input"/>
-      <connect from_op="Set Role" from_port="example set output" to_op="Numerical to Polynominal" to_port="example set input"/>
-      <connect from_op="Numerical to Polynominal" from_port="example set output" to_op="Decision Tree" to_port="training set"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="Discretize" to_port="example set input"/>
+      <connect from_op="Discretize" from_port="example set output" to_op="Decision Tree" to_port="training set"/>
       <connect from_op="Decision Tree" from_port="model" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
