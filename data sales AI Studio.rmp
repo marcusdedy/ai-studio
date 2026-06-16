@@ -36,7 +36,7 @@
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
-      <operator activated="true" class="replace_missing_values" compatibility="12.1.001" expanded="true" height="103" name="Replace Missing Values" width="90" x="246" y="289">
+      <operator activated="true" class="replace_missing_values" compatibility="12.1.001" expanded="true" height="103" name="Replace Missing Values" width="90" x="313" y="289">
         <parameter key="return_preprocessing_model" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -49,18 +49,18 @@
         <parameter key="use_block_type_exception" value="false"/>
         <parameter key="except_block_type" value="value_matrix_row_start"/>
         <parameter key="invert_selection" value="false"/>
-        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="include_special_attributes" value="true"/>
         <parameter key="default" value="average"/>
         <list key="columns"/>
       </operator>
-      <operator activated="true" class="blending:set_role" compatibility="12.1.001" expanded="true" height="82" name="Set Role" width="90" x="447" y="391">
+      <operator activated="true" class="blending:set_role" compatibility="12.1.001" expanded="true" height="82" name="Set Role" width="90" x="447" y="136">
         <list key="set_roles">
           <parameter key="Gross Sales" value="label"/>
         </list>
       </operator>
-      <operator activated="true" class="numerical_to_polynominal" compatibility="12.1.001" expanded="true" height="82" name="Numerical to Polynominal" width="90" x="581" y="136">
-        <parameter key="attribute_filter_type" value="all"/>
-        <parameter key="attribute" value=""/>
+      <operator activated="true" class="numerical_to_polynominal" compatibility="12.1.001" expanded="true" height="82" name="Numerical to Polynominal" width="90" x="715" y="85">
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="Gross Sales"/>
         <parameter key="attributes" value=""/>
         <parameter key="use_except_expression" value="false"/>
         <parameter key="value_type" value="numeric"/>
@@ -70,10 +70,10 @@
         <parameter key="use_block_type_exception" value="false"/>
         <parameter key="except_block_type" value="value_series_end"/>
         <parameter key="invert_selection" value="false"/>
-        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="include_special_attributes" value="true"/>
       </operator>
-      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="12.1.001" expanded="true" height="103" name="Decision Tree" width="90" x="916" y="85">
-        <parameter key="criterion" value="least_square"/>
+      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="12.1.001" expanded="true" height="103" name="Decision Tree" width="90" x="916" y="187">
+        <parameter key="criterion" value="gain_ratio"/>
         <parameter key="maximal_depth" value="10"/>
         <parameter key="apply_pruning" value="true"/>
         <parameter key="confidence" value="0.1"/>
